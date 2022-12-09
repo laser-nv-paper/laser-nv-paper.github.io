@@ -151,7 +151,7 @@
           <div class="col">
             <p class="name text-center">
             <a href="https://scholar.google.com/citations?user=LZxqcX4AAAAJ&hl=en&oi=ao"
-		    target="_blank" >Theophane</br>Weber</a>
+		    target="_blank" >Théophane</br>Weber</a>
             </p>
           </div>
           <div class="col">
@@ -201,9 +201,16 @@
 	    <img src="data/teaser.svg" alt="Model Overview" class="teaser"/>
           </div>
 		  <p class="text">
-SRT takes few <strong>posed or unposed</strong> images of <strong>novel real-world scenes</strong> as input and produces a <strong>set-latent scene representation</strong> that is decoded to <strong>3D videos & semantics</strong>, entirely in <strong>real-time</strong>.
-The model is <strong>fully geometry-free</strong>, instead powered by <strong>Transformers</strong> and <strong>attention</strong> mechanisms.
-		  </p>
+NeRF-VAE with Latent Set Representation (Laser-NV) is a generative model over
+3D scenes. It can <strong>sample new scenes from the prior</strong>, or <strong>complete existing scenes</strong>
+based on sparse observations.
+      </p>
+      <p>
+The <strong>latent set representation</strong> of a 3D scene is modelled by a permutation-invariant
+normalizing flow based on Transformers. Laser-NV's decoder is based on NeRF, but
+uses <strong>cross-attention</strong> to <strong>attend</strong> to the latent set as well as <strong>local features reprojected
+from available observations</strong>.
+      </p>
         </div>
       </div>
 
