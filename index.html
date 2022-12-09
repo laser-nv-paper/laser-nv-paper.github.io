@@ -1,0 +1,387 @@
+
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8"/>
+    <meta name="viewport"
+          content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css"
+          rel="stylesheet"
+	  integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3"
+	  crossorigin="anonymous">
+
+    <link rel="stylesheet"
+    href="https://cdn.jsdelivr.net/gh/highlightjs/cdn-release@11.4.0/build/styles/default.min.css">
+    <script src="https://cdn.jsdelivr.net/gh/highlightjs/cdn-release@11.4.0/build/highlight.min.js"></script>
+    <script>hljs.highlightAll();</script>
+
+    <title>Laser: Latent Set Representations for 3D Generative Modeling</title>
+    <style>
+      .paper-title {
+        margin-top: 2em;
+        margin-bottom: 2em;
+      }
+      .long-name {
+        font-size: 1.5em;
+      }
+      .authors-list .name {
+        font-size: 0.7em;
+        /*font-weight: bold;*/
+      }
+      .authors-list .affiliation {
+        font-size: 1.0em;
+      }
+      .paper-link a {
+        font-size: 1.5em;
+      }
+      .short-videos video {
+        padding: 1em;
+      }
+      .content-block {
+        padding-left: 2em;
+        padding-right: 2em;
+        padding-bottom: 2em;
+      }
+      .overview-video {
+        background-color: rgb(240,240,240);
+      }
+      .overview-video .video-col {
+        margin-left: 2em;
+        margin-right: 2em;
+      }
+      .video-row {
+        margin-top: 1em;
+        margin-bottom: 1em;
+      }
+      .geometric-consistency {
+        background-color: rgb(240,240,240);
+      }
+      .code {
+        background-color: rgb(240,240,240);
+      }
+      .dataset {
+/*         background-color: rgb(240,240,240); */
+      }
+      .citation {
+/*         background-color: rgb(240,240,240); */
+      }
+      .citation .description {
+        font-family: "Courier",monospace;
+        white-space: pre-wrap;
+        text-align: left;
+        font-size: 0.7em;
+      }
+      .additional-links {
+        background-color: #f4f4f4;
+      }
+      .textcommumn {
+        text-align: center;
+      }
+      @media (min-width: 1000px) {
+	      .container {
+		      max-width: 900px;
+	      }
+      }
+      .teaser {
+	      width: 100%;
+	      max-width: 520px;
+      }
+    </style>
+  </head>
+
+  <body>
+    <div class="container">
+      <div class="paper-title">
+        <!-- title -->
+        <div class="row">
+          <div class="col">
+		  <h1 class="name text-center">Laser: Latent Set Representations for 3D Generative Modeling</h1>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col">
+          </div>
+        </div>
+
+      <!-- Authors -->
+      <div class="authors-list">
+        <div class="row gx-1">
+          <div class="col">
+            <p class="name text-center">
+            <a href="https://scholar.google.com/citations?user=CY0-T_MAAAAJ&hl=en"
+	       target="_blank" >Pol*</br>Moreno</a> <a href="mailto:polc@deepmind.com">📧</a>
+            </p>
+          </div>
+          <div class="col">
+            <p class="name text-center">
+            <a href="https://akosiorek.github.io/"
+	       target="_blank" >Adam* R.</br>Kosiorek</a> <a href="mailto:adamrk@deepmind.com">📧</a>
+            </p>
+          </div>
+          <div class="col">
+            <p class="name text-center">
+            <a href="https://scholar.google.co.uk/citations?user=QFseZ2gAAAAJ&hl=en"
+		    target="_blank" >Heiko</br>Strathmann</a>
+            </p>
+          </div>
+          <div class="col">
+            <p class="name text-center">
+            <a href="https://scholar.google.com/citations?user=1JQDH_AAAAAJ&hl=en&oi=ao"
+		    target="_blank" >Daniel</br>Zorgan</a>
+            </p>
+          </div>
+          <div class="col">
+            <p class="name text-center">
+            <a
+            <a href="https://scholar.google.com/citations?user=Ysx_wZgAAAAJ&hl=en"
+		    target="_blank" >Rosalia G.</br>Schneider</a>
+            </p>
+          </div>
+          <div class="col">
+            <p class="name text-center">
+            <a>Björn</br>Winckler</a>
+            </p>
+          </div>
+          <div class="col">
+            <p class="name text-center">
+            <a href="https://scholar.google.com/citations?user=jM6Y0yAAAAAJ&hl=en&oi=ao"
+		    target="_blank" >Larisa</br>Markeeva</a>
+            </p>
+          </div>
+          <div class="col">
+            <p class="name text-center">
+            <a href="https://scholar.google.com/citations?user=LZxqcX4AAAAJ&hl=en&oi=ao"
+		    target="_blank" >Theophane</br>Weber</a>
+            </p>
+          </div>
+          <div class="col">
+            <p class="name text-center">
+            <a href="https://danilorezende.com/"
+	       target="_blank" >Danilo J.</br>Rezende</a>
+            </p>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col">
+		  <p class="text-center">
+      <br>
+	    <img src="data/deepmind_logo.svg" alt="Deepmind" width="150em"/>
+		  </p>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col">
+		  <!-- <p class="text-center">
+	            CVPR 2022
+		  </p> -->
+          </div>
+        </div>
+      </div>
+    </div>
+
+      <!-- Links -->
+      <!-- <div class="paper-link">
+        <div class="row">
+          <div class="col">
+            <p class="text-center">
+	      <a href="https://arxiv.org/abs/2111.13152">[Paper]</a>
+		    &nbsp;&nbsp;&nbsp;&nbsp;
+	      <a href="#code">[Code]</a>
+		    &nbsp;&nbsp;&nbsp;&nbsp;
+	      <a href="#dataset">[Dataset]</a>
+            </p>
+          </div>
+        </div>
+      </div> -->
+
+      <!-- Teaser -->
+      <div class="content-block">
+        <div class="row">
+          <div class="col text-center">
+	    <img src="data/teaser.svg" alt="Model Overview" class="teaser"/>
+          </div>
+		  <p class="text">
+SRT takes few <strong>posed or unposed</strong> images of <strong>novel real-world scenes</strong> as input and produces a <strong>set-latent scene representation</strong> that is decoded to <strong>3D videos & semantics</strong>, entirely in <strong>real-time</strong>.
+The model is <strong>fully geometry-free</strong>, instead powered by <strong>Transformers</strong> and <strong>attention</strong> mechanisms.
+		  </p>
+        </div>
+      </div>
+
+
+      <!-- Supplementary videos -->
+      <div class="content-block additional-links">
+        <div class="row">
+          <div class="col">
+            <p class="title">
+              <h3>Examples</h3>
+            </p>
+          </div>
+        </div>
+        <div class="row textcommumn">
+          <div class="col">
+            <a href="data/city.html">
+              <img src="data/streetview/image1.gif">
+              <p>
+                City
+              </p>
+            </a>
+          </div>
+          <div class="col">
+            <a href="data/multi_shapenet.html">
+              <img src="data/home/msn.gif">
+              <p>
+                MultiShapeNet (MSN)
+              </p>
+            </a>
+          </div>
+          <div class="col">
+            <a href="data/nmr.html">
+              <img src="data/home/shapenet.gif">
+              <p>
+                ShapeNet (NMR)
+              </p>
+            </a>
+          </div>
+        </div>
+      </div>
+
+      <!-- Abstract -->
+      <div class="abstract content-block">
+        <div class="row">
+          <div class="col">
+            <p class="title">
+              <h3>Abstract</h3>
+            </p>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col">
+		  <p class="text">
+        NeRF provides unparalleled fidelity of novel view synthesis&#8212;rendering a 3D scene from an arbitrary viewpoint. NeRF requires training on a large number of views that fully cover a scene, which limits its applicability.
+        While these issues can be addressed by learning a prior over scenes in various forms, previous approaches have been either applied to overly simple scenes or struggling to render unobserved parts.
+        We introduce Laser-NV&#8212;a generative model which achieves high modelling capacity, and which is based on a set-valued latent representation modelled by normalizing flows.
+        Similarly to previous amortized approaches, Laser-NV learns structure from multiple scenes and is capable of fast, feed-forward inference from few views.
+        To encourage higher rendering fidelity and consistency with observed views, Laser-NV further incorporates a geometry-informed attention mechanism over the observed views.
+        Laser-NV further produces diverse and plausible completions of occluded parts of a scene while remaining consistent with observations.
+        Laser-NV shows state-of-the-art novel-view synthesis quality when evaluated on ShapeNet and on a novel simulated City dataset, which features high uncertainty in the unobserved regions of the scene.</p>
+		  <p class="text">
+      </p>
+		  <p class="text">
+      </p>
+          </div>
+        </div>
+      </div>
+
+
+
+      <!-- Code -->
+      <div class="content-block code", id="code">
+        <div class="row">
+          <div class="col">
+            <p class="title">
+              <h3>Code</h3>
+            </p>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col">
+            <p class="text">
+              To be released.
+            </p>
+          </div>
+        </div>
+      </div>
+
+      <!-- Dataset -->
+      <div class="content-block dataset", id="dataset">
+        <div class="row">
+          <div class="col">
+            <p class="title">
+              <h3>Dataset</h3>
+            </p>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col">
+            <p class="text">
+            To be released.
+            <!-- Our MultiShapeNet (MSN) dataset is publicly available. -->
+            </p>
+            <!-- <ul>
+              <li>Location: <a href="https://console.cloud.google.com/storage/browser/kubric-public/tfds/multi_shapenet_frames/">gs://kubric-public/tfds/multi_shapenet_frames/</a></li>
+              <li>Format: tf-record</li>
+              <li>Train split: 1.047.815 scenes</li>
+              <li>Validation split: 104.657 scenes</li>
+              <li>Test split: 10.000 scenes</li>
+              <li>Dataset size: 344.77 GiB</li>
+            </ul>
+            <p>
+              You can read the data directly from <code>data_dir='gs://kubric-public/tfds'</code>. However, for best
+              performance, it's recommended to copy the data locally with
+              <a href="https://cloud.google.com/storage/docs/gsutil_install">gsutil</a>: -->
+            <!-- </p> -->
+            <!-- <pre><code class="language-bash">
+DATA_DIR=~/tensorflow_datasets/
+mkdir $DATA_DIR
+gsutil -m cp -r gs://kubric-public/tfds/multi_shapenet_frames/ $DATA_DIR
+</code></pre>
+            <p>
+              Once downloaded, you can plug the data directly into your model using <a href="https://github.com/google-research/sunds">SunDs</a>:
+            </p>
+            <pre><code class="language-python">
+import sunds
+
+builder = sunds.builder('multi_shapenet')
+print(builder.frame_builder.info)  # Print structure of the dataset
+
+ds = builder.as_dataset(
+    split='train',
+    task=sunds.task.Nerf(yield_mode='stacked'),
+)
+for ex in ds.as_numpy_iterator():  # Convert TF -> numpy
+    # Each example is a scene containing 10 images
+    ray_origins = ex['ray_origins']  # f32[10 128 128 3]
+    ray_directions = ex['ray_directions']  # f32[10 128 128 3]
+    color_images = ex['color_images']  # ui8[10 128 128 3]
+</code></pre>
+            <code class="python">
+            </code>
+            <p>
+              Inspect the dataset in <a href="https://colab.research.google.com/github/srt-paper/srt-paper.github.io/blob/main/multi_shapenet.ipynb">our interactive Colab</a>.</b>
+            </p> -->
+          </div>
+        </div>
+      </div>
+
+  <!-- Citation -->
+      <div class="content-block citation">
+        <div class="row">
+          <div class="col">
+            <p class="title">
+              <h3>Citation</h3>
+            </p>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col">
+            <p class="description">
+@article{lasernv2022,
+  title={{Laser: Latent Set Representations for 3D Generative Modeling}},
+  author={Pol Moreno and Adam R. Kosiorek and Heiko Strathmann and Daniel Zoran and Rosalia G. Schneider and Björn Winckler and Larisa Markeeva and Th{\'e}ophane Weber and Danilo J. Rezende},
+  journal={{arXiv}},
+  year={2022},
+  url={https://laser-nv-paper.github.io/},
+}
+            </p>
+          </div>
+        </div>
+      </div>
+
+    </div>
+
+<!-- Bootstrap bits -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"
+	    integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p"
+    	    crossorigin="anonymous"></script>
+  </body>
+</html>
