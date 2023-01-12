@@ -219,13 +219,45 @@ from available observations</strong>.
         </div>
       </div>
 
+      <!-- City inpainting overview -->
+      <div class="content-block">
+        <div class="row">
+          <div class="col">
+            <p class="title">
+              <h3>Scene Completion</h3>
+            </p>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col text-center">
+            <div style="overflow:hidden; display:block; margin:0; padding:0;">
+              <video loop="True" autoplay muted width="650px"
+              style="margin-bottom: -75px; margin-top: -70px" >
+                  <source src="data/city/city_overview.mp4" type="video/mp4" >
+              </video>
+            </div>
+          </div>
+		  <p class="text">
+      </p>
+      <p>
+Laser-NV can complete a scene from partial observations. Rendering a novel
+viewpoint (red) may require inpainting unobsered parts of the scene (gray) based
+on the latent representation. As a stochastic generative model, Laser-NV can
+inpaint these parts in many different ways. Inpainting needs to be consistent with
+observed views. This is accomplished by reprojecting local features from the
+observed views (green arrows).
+      </p>
+        </div>
+      </div>
+
+
 
       <!-- Supplementary videos -->
       <div class="content-block additional-links">
         <div class="row">
           <div class="col">
             <p class="title">
-              <h3>Examples</h3>
+              <h3>Conditional Generation Examples</h3>
             </p>
           </div>
         </div>
