@@ -90,6 +90,35 @@
 	      width: 100%;
 	      max-width: 520px;
       }
+
+      .my_container {
+        display: flex;
+        flex-flow: row nowrap;
+        justify-content: center;
+        /* align-items: center; */
+        /* align-content: center; */
+        /* gap: 0px; */
+        /* height: 256px; */
+        /* width: 1000px; */
+        padding: 0;
+        margin: 0;
+      }
+
+      .my_element {
+        margin: auto;
+        /* display: box; */
+        padding: 5px 25px 5px;
+        height: 256px;
+        line-height: 256px;
+        font-weight: bold;
+        font-size: 3em;
+        text-align: center;
+        list-style-type: none;
+      }
+
+      .my_added_padding {
+        padding-top: 25px
+      }
     </style>
   </head>
 
@@ -232,22 +261,47 @@ from available observations</strong>.
           <div class="col text-center">
             <div style="overflow:hidden; display:block; margin:0; padding:0;">
               <video loop="True" autoplay muted width="650px"
-              style="margin-bottom: -75px; margin-top: -70px" >
+              style="margin-bottom: -70px; margin-top: -70px" >
                   <source src="data/city/city_overview.mp4" type="video/mp4" >
               </video>
             </div>
           </div>
-		  <p class="text">
-      </p>
       <p>
 Laser-NV can complete a scene from partial observations. Rendering a novel
 viewpoint (red) may require inpainting unobsered parts of the scene (gray) based
-on the latent representation. As a stochastic generative model, Laser-NV can
-inpaint these parts in many different ways. Inpainting needs to be consistent with
+on the latent representation. Inpainting needs to be consistent with
 observed views. This is accomplished by reprojecting local features from the
 observed views (green arrows).
       </p>
         </div>
+
+        <div class="row">
+          <div class="col">
+          <ul class="my_container">
+            <li class="my_element">
+              <div style="width:128px">
+                <img src="data/city/city_variance_context.png">
+              </div>
+            </li>
+            <li class="my_element">
+              &rarr;
+            </li>
+            <li class="my_element">
+              <video width="512px" loop="True" autoplay muted>
+                  <source src="data/city/city_variance_vid.webm" type="video/webm">
+              </video>
+            </li>
+          </ul>
+          </div>
+        </div>
+        <p><br>
+As a stochastic generative model, Laser-NV can inpaint missing parts of the
+scene in many different ways. Here we show 4 prior samples (right) conditioned
+on the same observations (left). The observed parts of the scene are consistent
+with the observations, but the unobsered parts are different. To make these
+visualisations we trained the model on a dataset containing birds-eye views of
+the City.
+        </p>
       </div>
 
 
