@@ -259,7 +259,20 @@
       <div class="content-block">
         <div class="row">
           <div class="col text-center">
-	    <img src="data/teaser.svg" alt="Model Overview" class="teaser"/>
+            <!-- <img src="data/teaser.svg" alt="Model Overview" class="teaser"/> -->
+
+            <div style="position: relative;">
+              <!-- <div> -->
+                <img src="data/teaser.svg" alt="Model Overview" class="teaser"/>
+              <!-- </div> -->
+              <div style="overflow:hidden; width:64px; position: absolute; top:22px; right:168px;">
+                <video width="256px" loop="True" autoplay muted
+                 style="margin-right:-64px;">
+                    <source src="data/city/city_variance_vid.webm" type="video/webm">
+                </video>
+              </div>
+            </div>
+
           </div>
 		  <p class="text">
 NeRF-VAE with Latent Set Representation (Laser-NV) is a generative model over
