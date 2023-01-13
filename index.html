@@ -228,6 +228,33 @@
         </div>
       </div> -->
 
+      <!-- Abstract -->
+      <div class="abstract content-block">
+        <div class="row">
+          <div class="col">
+            <p class="title">
+              <h3>Abstract</h3>
+            </p>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col">
+      <p class="text">
+        NeRF provides unparalleled fidelity of novel view synthesis&#8212;rendering a 3D scene from an arbitrary viewpoint. NeRF requires training on a large number of views that fully cover a scene, which limits its applicability.
+        While these issues can be addressed by learning a prior over scenes in various forms, previous approaches have been either applied to overly simple scenes or struggling to render unobserved parts.
+        We introduce Laser-NV&#8212;a generative model which achieves high modelling capacity, and which is based on a set-valued latent representation modelled by normalizing flows.
+        Similarly to previous amortized approaches, Laser-NV learns structure from multiple scenes and is capable of fast, feed-forward inference from few views.
+        To encourage higher rendering fidelity and consistency with observed views, Laser-NV further incorporates a geometry-informed attention mechanism over the observed views.
+        Laser-NV further produces diverse and plausible completions of occluded parts of a scene while remaining consistent with observations.
+        Laser-NV shows state-of-the-art novel-view synthesis quality when evaluated on ShapeNet and on a novel simulated City dataset, which features high uncertainty in the unobserved regions of the scene.</p>
+      <p class="text">
+      </p>
+      <p class="text">
+      </p>
+          </div>
+        </div>
+      </div>
+
       <!-- Teaser -->
       <div class="content-block">
         <div class="row">
@@ -274,7 +301,26 @@ observed views. This is accomplished by reprojecting local features from the
 observed views (green arrows).
       </p>
         </div>
-
+        <div class="row">
+          <div class="col">
+            <p class="title">
+              <h3>Diverse Outputs</h3>
+            </p>
+          </div>
+        </div>
+        <!-- nmr chairs laser-nv vs deterministic baseline -->
+        <div class="row">
+          <div class="col text-center">
+            <img src="data/nmr/chairs_varied_completions.png" width="800px">
+          </div>
+        </div>
+        <p><br>
+As a stochastic generative model, Laser-NV can sample diverse solutions compatible
+with the observed context. In the middle we see three ShapeNet chairs, each with a different
+backrest, but all compatible with the context. Compare that to a single solution of a
+deterministic baseline on the right.
+        </p>
+        <!-- same obs -> multiple diverse city fly-throughs -->
         <div class="row">
           <div class="col">
           <ul class="my_container">
@@ -295,18 +341,15 @@ observed views (green arrows).
           </div>
         </div>
         <p><br>
-As a stochastic generative model, Laser-NV can inpaint missing parts of the
+Similarly, Laser-NV can inpaint missing parts of the
 scene in many different ways. Here we show 4 prior samples (right) conditioned
-on the same observations (left). The observed parts of the scene are consistent
-with the observations, but the unobsered parts are different. To make these
+on the same two observations (left). The observed parts of the scene are consistent
+with the observations, but the unobserved parts are different. To make these
 visualisations we trained the model on a dataset containing birds-eye views of
 the City.
         </p>
-        <div class="row">
-          <div class="col">
-            <img src="data/nmr/chairs_varied_completions.png" width="512px">
-          </div>
       </div>
+
 
 
 
@@ -352,34 +395,6 @@ the City.
           </div>
         </div>
       </div>
-
-      <!-- Abstract -->
-      <div class="abstract content-block">
-        <div class="row">
-          <div class="col">
-            <p class="title">
-              <h3>Abstract</h3>
-            </p>
-          </div>
-        </div>
-        <div class="row">
-          <div class="col">
-		  <p class="text">
-        NeRF provides unparalleled fidelity of novel view synthesis&#8212;rendering a 3D scene from an arbitrary viewpoint. NeRF requires training on a large number of views that fully cover a scene, which limits its applicability.
-        While these issues can be addressed by learning a prior over scenes in various forms, previous approaches have been either applied to overly simple scenes or struggling to render unobserved parts.
-        We introduce Laser-NV&#8212;a generative model which achieves high modelling capacity, and which is based on a set-valued latent representation modelled by normalizing flows.
-        Similarly to previous amortized approaches, Laser-NV learns structure from multiple scenes and is capable of fast, feed-forward inference from few views.
-        To encourage higher rendering fidelity and consistency with observed views, Laser-NV further incorporates a geometry-informed attention mechanism over the observed views.
-        Laser-NV further produces diverse and plausible completions of occluded parts of a scene while remaining consistent with observations.
-        Laser-NV shows state-of-the-art novel-view synthesis quality when evaluated on ShapeNet and on a novel simulated City dataset, which features high uncertainty in the unobserved regions of the scene.</p>
-		  <p class="text">
-      </p>
-		  <p class="text">
-      </p>
-          </div>
-        </div>
-      </div>
-
 
 
       <!-- Code -->
